@@ -1,0 +1,26 @@
+﻿@* 聊天室上傳檔案 Modal *@
+<div class="bg_close" onclick="closeModal()"></div>
+<div id="uploadFileModal" class="w3-modal-content w3-animate-top w3-card-4 modal_box">
+    <span onclick="closeModal()" class="w3-button w3-display-topright">&times;</span>
+    <div class="message_box">
+        <div class="attachment">
+            <div class="items-title">附件：</div>
+            <ul>
+                <li>
+                    <input id="uploadFile1" type="file" class="upload-file" placeholder="附件" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt">
+                    <div class="dismiss"><a onclick='javascript: cancelFile("#uploadFile1");' href="javascript:;"><img src="~/images/clear.png" alt="" /></a></div>
+                </li>
+                <li>
+                    <input id="uploadFile2" type="file" class="upload-file" placeholder="附件" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt">
+                    <div class="dismiss"><a onclick='javascript: cancelFile("#uploadFile2");' href="javascript:;"><img src="~/images/clear.png" alt="" /></a></div>
+                </li>
+                <li>
+                    <input id="uploadFile3" type="file" class="upload-file" placeholder="附件" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt">
+                    <div class="dismiss"><a onclick='javascript: cancelFile("#uploadFile3");' href="javascript:;"><img src="~/images/clear.png" alt="" /></a></div>
+                </li>
+            </ul>
+        </div>
+        <div class="notice">檔案大小限制：5MB；支援jpg、png、gif、bmp、doc、docx、xls、pdf、ppt</div>
+        <div class="btn"><a class="upload-button" href="javascript:;">確定</a></div>
+    </div>
+</div>

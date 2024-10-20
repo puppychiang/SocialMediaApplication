@@ -1,0 +1,46 @@
+﻿@model LineOfficial_MVC.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "台灣好農SCM LINE::帳號綁定";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/index.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png?v=1.0" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="bind">商家帳號綁定</h2>
+        @*UserID*@
+        <h3 id="userIdtext">No UserID</h3>
+        @*UserName*@
+        <h3 id="userNametext">No UserName</h3>
+        @*UserEmail*@
+        <h3 id="userEmailtext">No UserEmail</h3>
+
+        <a asp-controller="Liff" asp-action="Index2">跳轉Index2</a>
+
+        <form id="formBindAccount" asp-controller="Liff" asp-action="BindAccount" method="post" enctype="multipart/form-data">
+            <div class="items">
+                <ul>
+                    @*hidden UserID*@
+                    <input type="hidden" id="userId" asp-for="@Model.LineBotUserID" />
+                    @*hidden UserName*@
+                    <input type="hidden" id="userName" asp-for="@Model.CustomerAccountName" />
+                    @*hidden userEmail*@
+                    <input type="hidden" id="userEmail" asp-for="@Model.CustomerAccountEmail" />
+
+                    <li>
+                        <div class="items-title">商家編號：</div>
+                        <div class="items-form">
+                            <span asp-validation-for="@Model.CustomerNum" class="text-danger"></span>
+                            <input type="text" asp-for="@Model.CustomerNum">
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn"><a class="save-button" href="javascript:;">綁定</a></div>
+            </div>
+        </form>
+    </div>
+</div>

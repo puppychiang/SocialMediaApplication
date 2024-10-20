@@ -1,0 +1,34 @@
+﻿@model LineOfficial_MVC.ViewModels.UploadViewModel
+@{
+    ViewBag.Title = "台灣好農SCM LINE::檔案上傳";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/upload.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="upload">檔案上傳</h2>
+        @*UserID*@
+        <h3 id="userIdtext">No UserID</h3>
+
+        <form id="FileUpload" asp-controller="Liff" asp-action="FileUpload" method="post" enctype="multipart/form-data">
+            <div class="items">
+                <ul>
+                    @*hidden UserID*@
+                    <input type="hidden" id="userId" asp-for="@Model.LineBotUserID" />
+
+                    <li>
+                        <div class="items-title">選擇檔案：</div>
+                        <div class="items-form"><input type="file" class="upload-file" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt"></div>
+                        <div class="notice">檔案大小限制：5MB；支援jpg、png、gif、bmp、doc、docx、xls、pdf、ppt</div>
+                    </li>
+                </ul>
+                <div class="btn"><a class="save-button" href="javascript:;">上傳</a></div>
+            </div>
+        </form>
+    </div>
+</div>

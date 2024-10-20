@@ -1,0 +1,82 @@
+﻿@model LineOfficial_MVC.ViewModels.LineOAuth.FinishViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Line 登入成功</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .line-logo {
+            display: block;
+            margin: 0 auto;
+            width: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+            .line-logo img {
+                width: 100%;
+                height: auto;
+            }
+
+        h1 {
+            text-align: center;
+            color: #00b900;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 12px;
+            text-align: center;
+            background-color: #00b900;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #00a000;
+            }
+    </style>
+</head>
+<body>
+    <div class="">
+        <div class="line-logo">
+            <img src="@Model.pictureUrl" alt="Line Logo">
+        </div>
+        <h1>使用 Line 登入成功！</h1>
+        <p>授權碼：@Model.authorizationCode</p>
+        <p>Token：@Model.accessToken</p>
+        <p>User ID：@Model.userId</p>
+        <p>信箱：@Model.email</p>
+        <a href="@Url.Action("Index","LineOAuth")" class="btn">重新登入</a>
+    </div>
+</body>
+</html>

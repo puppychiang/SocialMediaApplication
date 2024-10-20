@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="SHORTCUT ICON" href="~/favicon.ico">
+    <link rel="stylesheet" href="~/css/reset.css?v=2.0" />
+    <link rel="stylesheet" href="~/css/w3.css?v=2.0" />
+    <link rel="stylesheet" href="~/css/all-style.css?v=2.0" />
+    @*loading css*@
+    <link rel="stylesheet" type="text/css" href="~/css/loading.css?v=2.0" />
+    @*<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>*@
+    <script type="text/javascript" src="~/js/jquery-3.6.3.js"></script>
+    <script src="~/js/rem.js"></script>
+    <script type="text/javascript" src="~/js/views/common.js?v=2.0"></script>
+
+    @*jquery validate js*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    @*Line Liff js*@
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    @*登入 Loading 畫面*@
+    @*<div class="loading_login">
+    <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">登入中，請稍候...</div>
+    </div>
+    </div>*@
+
+    <div class="wrap">
+        <header>台灣好農 LINE@@</header>
+        @RenderBody()
+    </div>
+
+    @*Loading 效果*@
+    @*<partial name="_Loading" />*@
+
+    <footer>台灣好農 © Copyright The Wonderfulfood. All Rights Reserved.</footer>
+
+    @* Modal視窗 *@
+    <div id="modal" class="w3-modal"></div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

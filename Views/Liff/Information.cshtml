@@ -1,0 +1,35 @@
+﻿@model LineOfficial_MVC.ViewModels.InformationViewModel
+@{
+    ViewBag.Title = "台灣好農SCM LINE::商家資訊";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/information.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="info">商家資訊</h2>
+        @*UserID*@
+        <h3 id="userIdtext">No UserID</h3>
+        <div class="items info-items">
+            <ul>
+                <li>
+                    <div class="items-title">商家編號：</div>
+                    <div class="items-content">H2019102500028</div>
+                </li>
+                <li>
+                    <div class="items-title">商家名稱：</div>
+                    <div class="items-content">米家樂有機農場</div>
+                </li>
+                <li>
+                    <div class="items-title">綁定狀態：</div>
+                    <div class="items-content">已申請綁定</div>
+                </li>
+            </ul>
+            <div class="btn"><a href="javascript:;" id="close">返回</a></div>
+        </div>
+    </div>
+</div>

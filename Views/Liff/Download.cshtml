@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "台灣好農SCM LINE::檔案下載";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/download.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="download">檔案下載</h2>
+        @*LineBotUserID*@
+        <h3 id="userIdtext">No UserID</h3>
+
+        <div class="items">
+            <ul>
+                <li>
+                    <div class="items-form">
+                        <div class="file-download type-pdf">商品規格書.pdf</div>
+                    </div>
+                </li>
+                @*<li>
+                    <div class="items-form">
+                        <div class="file-download type-jpg">商品規格書.jpg</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="items-form">
+                        <div class="file-download type-word">商品規格書.word</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="items-form">
+                        <div class="file-download type-file">商品規格書.file</div>
+                    </div>
+                </li>*@
+            </ul>
+            <div class="btn"><a href="javascript:;">下載</a></div>
+        </div>
+    </div>
+</div>

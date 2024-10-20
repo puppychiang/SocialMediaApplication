@@ -1,0 +1,63 @@
+﻿@model LineOfficial_MVC.ViewModels.QuestionListViewModel
+
+@{
+    ViewBag.Title = "台灣好農SCM LINE::問題清單";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/questionlist.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="question">問題清單</h2>
+
+        @*UserID*@
+        <h3>@Model.LineBotUserID</h3>
+
+        <div class="items question-items">
+            @*hidden UserID*@
+            <input type="hidden" asp-for="@Model.LineBotUserID" />
+
+            <ul>
+                <li>
+                    <div class="items-title">問題類別：</div>
+                    <div class="items-content">註冊問題</div>
+                </li>
+                <li>
+                    <div class="items-title">問題描述：</div>
+                    <div class="items-content column-set">為什麼我訂購同一筆訂單的商品宅配分了很多批抵達是否有集運的功能?</div>
+                </li>
+                <li>
+                    <div class="items-title">詢問日期：</div>
+                    <div class="items-content">2023-08-22</div>
+                </li>
+                <li>
+                    <div class="items-title">狀態：</div>
+                    <div class="items-content">未結案</div>
+                </li>
+                <li>
+                    <div class="items-content">
+                        <div class="btn">
+                            <a class="reply_item"
+                               href="https://liff.line.me/1661441976-vnGLKdyP"
+                               data-userid="@Model.LineBotUserID"
+                               data-questionno="85a08227-35c2-85a4-2e70-f3d8e2206d93">
+                                詳細
+                            </a>
+                            <a class="finish_item"
+                               href="@Url.Action("FinishQuestion", "Liff")"
+                               data-userid="@Model.LineBotUserID"
+                               data-questionno="85a08227-35c2-85a4-2e70-f3d8e2206d93">
+                                結案
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="btn"><a id="close" href="javascript:;">返回</a></div>
+    </div>
+</div>

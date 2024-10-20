@@ -1,0 +1,21 @@
+﻿@*Loading*@
+<div id="loading" class="loader_wrap" style="display: none">
+    <div class="loader_box">
+        <div class="loader_word">執行中...</div>
+        <div class="loader">
+            <img src="~/images/loader.svg" width="45" height="45" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+    //開啟Loading
+    function showLoading() {
+        $("#loading").show();
+    }
+
+    //關閉Loading
+    function closeLoading() {
+        $("#loading").hide();
+    }
+</script>

@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登入</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .facebook-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 50px;
+            background-color: #4285F4; /* Google 蓝色 */
+            border-radius: 25px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="facebook-button" onclick="FacebookAuth()">
+        <span class="facebook-icon"></span>
+        使用Facebook登入
+    </button>
+
+    <script>
+        var redirect_uri_facebook = "https://line.travelmap.com.tw/facebookoauth/callback";
+        //redirect_uri_facebook = "https://localhost:44351/facebookoauth/callback";
+        function FacebookAuth() {
+            var URL = 'https://www.facebook.com/v18.0/dialog/oauth?';
+            URL += 'response_type=code';
+            URL += '&client_id=659563682968950';
+            URL += '&redirect_uri=' + redirect_uri_facebook;
+            URL += '&state=login';
+            URL += '&scope=email%20public_profile%20user_birthday%20user_gender%20'; /* 適用於 Facebook 登錄的範圍 */
+            window.location.href = URL;
+        }
+    </script>
+
+
+
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://connect.facebook.net/zh_TW/all.js"></script>
+    <script type="text/javascript" src="~/js/FacebookAPI.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        // Facebook登入
+        var FacebookLogin = function () {
+            FB_API.checkLogin(function (re) {
+                if (re.status == 'connected' && re.authResponse) {
+                    $("#txtAccessToken").val(re.authResponse.accessToken);
+                    $("#btFacebookLogin").click();
+                }
+                else {
+                    alert("Facebook登入失敗");
+                }
+            });
+        };
+    </script> *@
+</body>
+</html>

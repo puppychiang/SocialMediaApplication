@@ -1,0 +1,91 @@
+﻿@model LineOfficial_MVC.ViewModels.QuestionChatBoxViewModel
+@{
+    ViewBag.Title = "台灣好農SCM LINE::問題內容";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/questionchatbox.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="question">問題內容</h2>
+        @*UserID*@
+        <p>@Model.LineBotUserID</p>
+        @*hidden UserID*@
+        <input type="hidden" id="userId" asp-for="@Model.LineBotUserID" />
+        @*QuestionNo*@
+        <p>@Model.QuestionNo</p>
+
+        <div class="message-wrap">
+            <div class="question-wrap">
+                <div class="item-set">
+                    <div class="user-name que">George</div>
+                    <div class="question-item">
+                        <p>為什麼我訂購的商品沒有一次抵達?</p>
+                        <div class="attach-question"><a href="javascript:;">附件</a></div>
+                        <div class="question-time">2023-08-22 14:45</div>
+                    </div>
+                </div>
+                <div class="item-set">
+                    <div class="user-name ans">Alice</div>
+                    <div class="answer-item">
+                        <p>
+                            由於不同的商品性質，可能會分為由產地或者店家直接出貨，例如整箱同品項的商品(整箱水果、整箱根莖等)；也可能會由倉庫集合整理後出貨，例如單份購買之商品或者食材箱等，因此您可能會分次收到來自全台各地寄出的農產品。
+                        </p>
+                        <div class="attach-question"><a href="javascript:;">附件</a></div>
+                        <div class="question-time">2023-08-22 14:45</div>
+                    </div>
+                </div>
+                <div class="item-set">
+                    <div class="user-name quest">George</div>
+                    <div class="question-item">
+                        <p>請問可以預定到貨日期嗎?</p>
+                        <div class="question-time">2023-08-22 14:45</div>
+                    </div>
+                </div>
+                <div class="item-set">
+                    <div class="user-name ans">Alice</div>
+                    <div class="answer-item">
+                        <p>不可以哦。</p>
+                        <div class="question-time">2023-08-22 14:45</div>
+                    </div>
+                </div>
+            </div>
+
+            @* 回覆表單 *@
+            <form id="formQuestionChatBoxReply" asp-controller="Liff" asp-action="QuestionChatBoxReply" method="post" enctype="multipart/form-data">
+                <div class="reply-box">
+                    @*hidden UserID*@
+                    <input type="hidden" asp-for="@Model.LineBotUserID" />
+                    @*hidden QuestionNo*@
+                    <input type="hidden" asp-for="@Model.QuestionNo" />
+
+                    <div class="message">
+                        <span asp-validation-for="@Model.Message" class="text-danger" style="color:red"></span>
+                        <textarea placeholder="輸入訊息" asp-for="@Model.Message"></textarea>
+                    </div>
+                    <div class="submit-box">
+                        @* 附件按鈕 *@
+                        <div class="btn paperclip">
+                            <a class="upload_item" asp-action="UploadFileModal" asp-controller="Liff">附件</a>
+                        </div>
+                        <input id="file1" name="File1" type="file" style="display:none">
+                        <input id="file2" name="File2" type="file" style="display:none">
+                        <input id="file3" name="File3" type="file" style="display:none">
+                        <div class="files-box">
+                            <ul>
+                                <li><img src="~/images/file.png" width="28" height="28" alt="" /></li>
+                                <li><img src="~/images/file-jpg.png" width="28" height="28" alt="" /></li>
+                                <li><img src="~/images/file-pdf.png" width="28" height="28" alt="" /></li>
+                            </ul>
+                        </div>
+                        <div class="btn submit"><a class="save-button" href="javascript:;">送出</a></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

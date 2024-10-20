@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登入</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .google-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 50px;
+            background-color: #4285F4; /* Google 蓝色 */
+            border-radius: 25px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="google-button" onclick="GoogleAuth()">
+        <span class="google-icon"></span>
+        使用Google登入
+    </button>
+
+    <script>
+        var redirect_uri = "https://line.travelmap.com.tw/googleoauth/callback";
+        redirect_uri = "https://localhost:44351/googleoauth/callback";
+
+        function GoogleAuth() {
+            var URL = 'https://accounts.google.com/o/oauth2/auth?';
+            URL += 'response_type=code';
+            URL += '&client_id=19660278147-0rq98ifj4t05b1k56aqdmo269ckmn29p.apps.googleusercontent.com';
+            URL += '&redirect_uri=' + redirect_uri;
+            URL += '&state=login';
+            URL += '&scope=profile%20email%20openid'; /* 适用于 Google 登录的范围 */
+            window.location.href = URL;
+        }
+    </script>
+</body>
+</html>

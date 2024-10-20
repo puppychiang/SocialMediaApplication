@@ -1,0 +1,56 @@
+﻿@model LineOfficial_MVC.ViewModels.QuestionViewModel
+@{
+    ViewBag.Title = "台灣好農SCM LINE::問題詢問";
+    @section Scripts{
+        <script type="text/javascript" src="~/js/views/question.js" asp-append-version="true"></script>
+    }
+}
+
+<div class="main">
+    <div class="main-box">
+        <div class="logo"><img src="~/images/logo.png" alt="" /></div>
+        <div class="logo-word">台灣好農</div>
+        <div class="logo-word-en">The Wonderfulfood</div>
+        <h2 class="question">問題詢問</h2>
+        @*LineBotUserID*@
+        <h3 id="userIdtext">No UserID</h3>
+
+        <div class="items">
+            <form id="formQuestion" asp-controller="Liff" asp-action="QuestionSend" method="post" enctype="multipart/form-data">
+                @*hidden LineBotUserID*@
+                <input type="hidden" id="userId" asp-for="@Model.LineBotUserID" />
+
+                <ul>
+                    <li>
+                        <div class="items-title">問題類別：</div>
+                        <div class="items-form">
+                            <select asp-for="@Model.QuestionTypeID">
+                                @foreach (var item in @Model.QuestionTypeSelectList)
+                                {
+                                    <option value="@item.TypeID">@item.TypeName</option>
+                                }
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="items-title">問題描述：</div>
+                        <div class="items-form">
+                            <span asp-validation-for="@Model.Message" class="text-danger"></span>
+                            <textarea placeholder="請輸入您的提問" asp-for="@Model.Message"></textarea>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="items-title">上傳檔案：</div>
+                        <div class="items-form"><input class="upload-file" type="file" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt"></div>
+                        <div class="items-form"><input class="upload-file" type="file" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt"></div>
+                        <div class="items-form"><input class="upload-file" type="file" accept=".jpg, .png, .gif, .bmp, .doc, .docx, .xls, .pdf, .ppt"></div>
+                        <div class="notice">
+                            檔案大小限制：5MB；支援jpg、png、gif、bmp、doc、docx、xls、pdf、ppt
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn"><a class="save-button" href="javascript:;">送出</a></div>
+            </form>
+        </div>
+    </div>
+</div>

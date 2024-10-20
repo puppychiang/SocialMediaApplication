@@ -1,0 +1,131 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登入</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 可选，用于水平居中按钮 */
+        }
+        .line-button, .google-button {
+            margin: 5px; /* 可选，用于添加按钮之间的垂直间距 */
+        }
+        .line-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%; /* 使用 max-width 以确保适应小屏幕 */
+            width: 200px;
+            height: 50px;
+            background-color: #00C300;
+            border-radius: 25px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 0 20px; /* 调整按钮的内边距 */
+        }
+        .google-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 50px;
+            background-color: #4285F4; /* Google 蓝色 */
+            border-radius: 25px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .facebook-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 50px;
+            background-color: #4285F4; /* Google 蓝色 */
+            border-radius: 25px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="line-button" onclick="LineAuth()">
+            <span class="line-icon"></span>
+            使用LINE登入
+        </button>
+
+        <button class="google-button" onclick="GoogleAuth()">
+            <span class="google-icon"></span>
+            使用Google登入
+        </button>
+
+        <button class="facebook-button" onclick="FacebookAuth()">
+            <span class="facebook-icon"></span>
+            使用Facebook登入
+        </button>
+    </div>
+
+    <script>
+        var redirect_uri_line = "https://line.travelmap.com.tw/lineoauth/callback";
+        //redirect_uri_line = "https://localhost:44351/lineoauth/callback";
+        function LineAuth() {
+            var URL = 'https://access.line.me/oauth2/v2.1/authorize?';
+            URL += 'response_type=code';
+            URL += '&client_id=1661441976';
+            URL += '&redirect_uri=' + redirect_uri_line;
+            URL += '&state=login';
+            URL += '&scope=profile%20email%20openid';
+            window.location.href = URL;
+        }
+
+        var redirect_uri_google = "https://line.travelmap.com.tw/googleoauth/callback";
+        //redirect_uri_google = "https://localhost:44351/googleoauth/callback";
+        function GoogleAuth() {
+            var URL = 'https://accounts.google.com/o/oauth2/auth?';
+            URL += 'response_type=code';
+            URL += '&client_id=19660278147-0rq98ifj4t05b1k56aqdmo269ckmn29p.apps.googleusercontent.com';
+            URL += '&redirect_uri=' + redirect_uri_google;
+            URL += '&state=login';
+            URL += '&scope=profile%20email%20openid'; /* 适用于 Google 登录的范围 */
+            window.location.href = URL;
+        }
+
+        var redirect_uri_facebook = "https://line.travelmap.com.tw/facebookoauth/callback";
+        redirect_uri_facebook = "https://localhost:44351/facebookoauth/callback";
+        function FacebookAuth() {
+            var URL = 'https://www.facebook.com/v18.0/dialog/oauth?';
+            URL += 'response_type=code';
+            URL += '&client_id=659563682968950';
+            URL += '&redirect_uri=' + redirect_uri_facebook;
+            URL += '&state=login';
+            URL += '&scope=email%20public_profile%20user_birthday%20user_gender%20'; /* 適用於 Facebook 登錄的範圍 */
+            window.location.href = URL;
+        }
+    </script>
+</body>
+</html>
