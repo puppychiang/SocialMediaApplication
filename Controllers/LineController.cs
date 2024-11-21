@@ -24,7 +24,7 @@ namespace LineOfficial_MVC.Controllers
             this.ChannelAccessToken = _appSettings.LineMessaging.channelAccessToken;
         }
 
-        #region Template Message Buttons 發送
+        #region Template Message Buttons (按鈕連結) 發送
         /// <summary>
         /// 主動發送 Line Template Message Buttons 訊息
         /// </summary>
@@ -138,7 +138,7 @@ namespace LineOfficial_MVC.Controllers
         #endregion
 
 
-        #region Template Message Carousel 發送
+        #region Template Message Carousel (輪播) 發送
         /// <summary>
         /// 主動發送 Line Template Message Buttons 訊息
         /// </summary>
@@ -198,7 +198,7 @@ namespace LineOfficial_MVC.Controllers
         #endregion
 
 
-        #region Template Message Confirm 發送
+        #region Template Message Confirm (確認) 發送
         /// <summary>
         /// 主動發送 Line Template Message Confirm 訊息
         /// </summary>
